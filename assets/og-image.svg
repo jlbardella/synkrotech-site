@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Fonte da og-image.png (1200x630). Texto em IBM Plex Sans, a mesma fonte do site. -->
+  <rect width="1200" height="630" fill="#17212b"/>
+  <g transform="translate(88 84) scale(2)">
+    <rect width="32" height="32" rx="7" fill="#f3f5f2"/>
+    <path d="M8 11h11a4 4 0 0 1 0 8" fill="none" stroke="#17212b" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M24 21H13a4 4 0 0 1 0-8" fill="none" stroke="#0e6e5c" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+  <text x="172" y="130" fill="#f3f5f2" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="40" letter-spacing="-0.4">Synkro Tech</text>
+  <text x="88" y="300" fill="#ffffff" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="72" letter-spacing="-1.8">Menos trabalho manual.</text>
+  <text x="88" y="388" fill="#3fb89c" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="72" letter-spacing="-1.8">Mais tempo para o que importa.</text>
+  <g transform="translate(88 470)" stroke-linecap="round">
+    <path d="M0 20 H1024" stroke="#4b5a66" stroke-width="2"/>
+    <path d="M0 90 H1024" stroke="#3fb89c" stroke-width="2"/>
+    <g fill="#f3f5f2"><circle cx="80" cy="20" r="8"/><circle cx="330" cy="20" r="8"/><circle cx="580" cy="20" r="8"/><circle cx="830" cy="20" r="8"/></g>
+    <g fill="#3fb89c"><circle cx="80" cy="90" r="8"/><circle cx="330" cy="90" r="8"/><circle cx="580" cy="90" r="8"/><circle cx="830" cy="90" r="8"/></g>
+    <g stroke="#3fb89c" stroke-width="2" stroke-dasharray="3 6"><path d="M80 32 V78"/><path d="M330 32 V78"/><path d="M580 32 V78"/><path d="M830 32 V78"/></g>
+  </g>
+</svg>

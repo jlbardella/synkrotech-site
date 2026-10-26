@@ -24,6 +24,9 @@ body {
 }
 a { color: var(--sinal); text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--sinal); outline-offset: 3px; border-radius: 2px; }
+.vh { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.pular { position: absolute; left: -999px; top: .5rem; background: #fff; color: var(--tinta); padding: .6rem 1rem; z-index: 20; }
+.pular:focus { left: 1rem; }
 
 .faixa { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
 
@@ -32,8 +35,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sinal); outline
 .topo .faixa { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; flex-wrap: wrap; }
 .marca { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--tinta); font-weight: 600; font-size: 1.125rem; letter-spacing: -0.01em; }
 .marca svg { width: 28px; height: 28px; }
-.menu { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: .95rem; }
-.menu a { color: var(--tinta-suave); text-decoration: none; }
+.menu { display: flex; gap: 0 1.25rem; flex-wrap: wrap; font-size: .95rem; }
+.menu a { color: var(--tinta-suave); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; }
 .menu a:hover { color: var(--tinta); text-decoration: underline; }
 
 /* Abertura */
@@ -41,8 +44,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sinal); outline
 .abertura .faixa { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; }
 .abertura h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); line-height: 1.12; letter-spacing: -0.025em; font-weight: 600; margin: 0 0 1.25rem; max-width: 18ch; }
 .abertura p { font-size: 1.2rem; color: var(--tinta-suave); margin: 0 0 2rem; max-width: 34ch; }
-.botao { display: inline-block; background: var(--sinal); color: #fff; text-decoration: none; font-weight: 500; padding: .8rem 1.3rem; border-radius: 6px; }
-.botao:hover { background: #0a5748; }
+.abertura .chamada { font-size: .95rem; font-weight: 500; color: var(--sinal); margin: 0 0 .9rem; max-width: none; }
+.botao { display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; background: var(--sinal); color: #fff; text-decoration: none; font-weight: 500; padding: .7rem 1.3rem; border-radius: 6px; border: 1.5px solid var(--sinal); }
+.botao:hover { background: #0a5748; border-color: #0a5748; }
+.botao svg { width: 20px; height: 20px; flex: none; }
+.botao-secundario { background: transparent; color: var(--tinta); border-color: var(--tinta); }
+.botao-secundario:hover { background: var(--sinal-claro); border-color: var(--tinta); }
+.acoes { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; }
+.link-toque { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* O desenho da sincronia: duas trilhas de dados que se alinham */
 .sincronia { width: 100%; height: auto; }
@@ -59,9 +68,11 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sinal); outline
 section { padding: 3.5rem 0; border-top: 1px solid var(--linha); }
 h2 { font-size: 1.75rem; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 1.75rem; line-height: 1.2; }
 .colunas { display: grid; grid-template-columns: 16rem 1fr; gap: 2.5rem; }
-.servicos { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 2.5rem; }
-.servicos dt { font-weight: 600; margin-bottom: .35rem; }
-.servicos dd { margin: 0; color: var(--tinta-suave); max-width: 40ch; }
+.servicos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 2.5rem; }
+.servicos h3 { font-size: 1.0625rem; font-weight: 600; margin: 0 0 .35rem; }
+.servicos p { margin: 0; color: var(--tinta-suave); max-width: 40ch; }
+.colunas .apoio { color: var(--tinta-suave); margin: -1rem 0 0; max-width: 30ch; }
+.saiba { display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; }
 
 .etapas { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; counter-reset: etapa; }
 .etapas li { counter-increment: etapa; border-top: 2px solid var(--tinta); padding-top: 1rem; }
@@ -75,10 +86,25 @@ h2 { font-size: 1.75rem; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 
 .valores { display: flex; flex-wrap: wrap; gap: .75rem; padding: 0; margin: 0; list-style: none; }
 .valores li { border: 1px solid #4b5a66; border-radius: 999px; padding: .35rem 1rem; font-size: .98rem; }
 
-.contato address { font-style: normal; display: grid; gap: .5rem; font-size: 1.1rem; }
+.contato address { font-style: normal; }
+.contato p { margin: 0 0 1rem; max-width: 46ch; }
+.contato .area { color: var(--tinta-suave); margin: 1rem 0 0; }
+.contatos { list-style: none; padding: 0; margin: 0; display: grid; gap: .1rem; }
+.contatos li { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .75rem; min-height: 44px; }
+.contatos .rotulo { min-width: 6.5rem; color: var(--tinta-suave); font-size: .95rem; }
+.contatos a { display: inline-flex; align-items: center; min-height: 44px; font-size: 1.1rem; overflow-wrap: anywhere; }
+
+/* Botão flutuante de WhatsApp */
+.whatsapp-flutuante { position: fixed; right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); width: 56px; height: 56px; border-radius: 50%; background: var(--sinal); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(23, 33, 43, .28); z-index: 10; }
+.whatsapp-flutuante:hover { background: #0a5748; }
+.whatsapp-flutuante:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; border-radius: 50%; }
+.whatsapp-flutuante svg { width: 28px; height: 28px; }
 
 /* Rodapé */
-.rodape { border-top: 1px solid var(--linha); padding: 2rem 0 2.5rem; font-size: .9rem; color: var(--tinta-suave); }
+/* O espaço extra embaixo impede que o botão flutuante cubra o rodapé */
+.rodape { border-top: 1px solid var(--linha); padding: 2rem 0 calc(2.5rem + 56px); font-size: .9rem; color: var(--tinta-suave); }
+.rodape ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.rodape li a { display: inline-flex; align-items: center; min-height: 32px; }
 .rodape .faixa { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
 .rodape p { margin: 0 0 .25rem; }
 
@@ -91,6 +117,24 @@ h2 { font-size: 1.75rem; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 
 .texto ul { padding-left: 1.25rem; }
 .texto li { margin-bottom: .35rem; }
 
+/* Páginas de serviço */
+.migalhas ol { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-wrap: wrap; gap: 0 .5rem; font-size: .9rem; color: var(--tinta-suave); }
+.migalhas li { margin: 0; color: var(--tinta-suave); }
+.migalhas li + li::before { content: "/"; margin-right: .5rem; }
+.texto h1 + .lead { margin-top: 1rem; }
+.texto .lead { font-size: 1.2rem; color: var(--tinta-suave); margin: 0 0 1rem; }
+.texto h3 { font-size: 1.0625rem; margin: 1.5rem 0 .35rem; }
+.texto h3 + p { margin-top: 0; }
+.texto .etapas { grid-template-columns: 1fr 1fr; margin-top: 1.25rem; }
+.texto .etapas li { margin: 0; }
+.cta { background: var(--sinal-claro); border-radius: 10px; padding: 1.75rem 1.5rem; margin: 2.75rem 0 0; }
+.texto .cta h2 { margin-top: 0; }
+.cta p { margin: 0 0 1.25rem; }
+.cta .acoes a.link-toque { font-weight: 500; }
+.relacionados { padding-left: 1.25rem; }
+.relacionados a { display: inline-flex; align-items: center; min-height: 44px; }
+.texto .relacionados li { margin-bottom: 0; }
+
 @media (max-width: 860px) {
   .abertura .faixa, .colunas, .servicos { grid-template-columns: 1fr; }
   .abertura { padding: 3rem 0 2.5rem; }
@@ -98,6 +142,6 @@ h2 { font-size: 1.75rem; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 
   .etapas { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 520px) {
-  .etapas { grid-template-columns: 1fr; }
-  .menu { gap: .9rem; }
+  .etapas, .texto .etapas { grid-template-columns: 1fr; }
+  .menu { gap: 0 .9rem; }
 }
